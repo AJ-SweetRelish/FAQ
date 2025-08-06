@@ -11,10 +11,12 @@ body {
 }
 
 body.search-open {
-  /* revert scroll-margin-top */
+  /* Reset scroll-margin-top to the default value */
+  scroll-margin-top: initial;
 }
 html, body {
-  /* revert overflow-y: auto */
+  /* Ensure vertical scrolling remains enabled */
+  overflow-y: auto;
 }
 
 h1 {
