@@ -1,5 +1,5 @@
 function checkTriangleRotation() {
-  document.querySelectorAll('.category, .question').forEach(el => {
+  document.querySelectorAll('.parent, .middle, .question').forEach(el => {
     const before = window.getComputedStyle(el, '::before');
     const transform = before.getPropertyValue('transform');
     const isActive = el.classList.contains('active');
@@ -78,14 +78,19 @@ function resetFAQ() {
 }
 
 function openAllDropdowns() {
-  document.querySelectorAll('.category, .question').forEach(el => {
+  document.querySelectorAll('.parent, .middle, .question').forEach(el => {
     el.classList.add('active');
   });
+  checkTriangleRotation();
 }
 
 document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.getElementById('searchInput');
   const noResults = document.getElementById('noResultsMessage');
+  const openAllBtn = document.getElementById('openAllDropdownsBtn');
+  if (openAllBtn) {
+    openAllBtn.addEventListener('click', openAllDropdowns);
+  }
   searchInput.addEventListener('input', function () {
     const value = this.value.trim().toLowerCase();
     const allDropdowns = document.querySelectorAll('.parent, .middle, .question');
